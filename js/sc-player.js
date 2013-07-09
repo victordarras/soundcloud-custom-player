@@ -501,7 +501,7 @@
         // adding controls to the player
         $player
           .find('.sc-controls')
-            .append('<a href="#play" class="sc-play">Play</a> <a href="#pause" class="sc-pause hidden">Pause</a>')
+            .append('<a href="#prev" class="sc-prev">prev</a> <a href="#play" class="sc-play">Play</a> <a href="#pause" class="sc-pause hidden">Pause</a> <a href="#next" class="sc-next">next</a>')
           .end()
           .append('<a href="#info" class="sc-info-toggle">Info</a>')
           .append('<div class="sc-scrubber"></div>')
@@ -623,6 +623,11 @@
     $list.find('li.active').click();
     return false;
   });
+  $(document).keydown(function(e){
+    if (e.keyCode == 32 ) {
+      $('.sc-player li.active').click();
+    }
+  });
 
   // displaying the info panel in the player
   $(document).on('click','a.sc-info-toggle, a.sc-info-close', function(event) {
@@ -630,6 +635,26 @@
     $link.closest('.sc-player')
       .find('.sc-info').toggleClass('active').end()
       .find('a.sc-info-toggle').toggleClass('active');
+    return false;
+  });
+
+  // Next / Previous song in the playlist
+  $(document).on('click','.sc-controls .sc-next', function (event) {
+    $nextItem = $('.sc-trackslist li.active').next('li');
+    console.log('next');
+    if(!$nextItem.length){
+      $nextItem = $('.sc-trackslist li').first('li');
+    }
+    $nextItem.click();
+    return false;
+  });
+  $(document).on('click','.sc-controls .sc-prev', function (event) {
+    $nextItem = $('.sc-trackslist li.active').prev('li');
+    console.log('prev');
+    if(!$nextItem.length){
+      $nextItem = $('.sc-trackslist li').last('li');
+    }
+    $nextItem.click();
     return false;
   });
 
@@ -654,7 +679,7 @@
   var scrub = function(node, xPos) {
     var $scrubber = $(node).closest('.sc-time-span'),
         $buffer = $scrubber.find('.sc-buffer'),
-        $available = $scrubber.find('.sc-waveform-container img'),
+        $available = $scrubber.find('.sc-buffer'),
         $player = $scrubber.closest('.sc-player'),
         relative = Math.min($buffer.width(), (xPos  - $available.offset().left)) / $available.width();
     onSeek($player, relative);
@@ -672,6 +697,7 @@
   $(document)
     .on('click','.sc-time-span', function(event) {
       scrub(this, event.pageX);
+      console.log(event.pageX);
       return false;
     })
     .on('touchstart','.sc-time-span', function(event) {

@@ -1,0 +1,235 @@
+.sc-player {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  margin-bottom: 20px;
+}
+
+.sc-player ol,
+.sc-player li {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+}
+
+/* Artworks */
+
+.sc-player .sc-artwork-list {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  list-style-type: none;
+  background-color: transparent;
+}
+
+.sc-player .sc-artwork-list li {
+  display: none;
+  list-style-type: none;
+}
+
+.sc-player .sc-artwork-list li.active {
+  display: block;
+  list-style-type: none;
+}
+
+.sc-player .sc-artwork-list li img,
+.sc-player .sc-artwork-list li div {
+  width: 100%;
+  height: 100%;
+  max-width: 52px;
+  max-height: 52px;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+.sc-no-artwork {
+  display: none;
+}
+
+/* controls */
+
+.sc-player .sc-controls {
+  position: relative;
+  z-index: 800;
+  width: 100px;
+  height: 35px;
+  margin: 6px;
+}
+
+.sc-player .sc-controls a {
+  position: absolute;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}
+
+.sc-player .sc-controls .sc-pause {
+  left: 28px;
+  display: none;
+}
+
+.sc-player .sc-controls .sc-play {
+  left: 28px;
+}
+
+.sc-player.playing .sc-controls .sc-play {
+  left: 28px;
+  display: none;
+}
+
+.sc-player.playing .sc-controls .sc-pause {
+  display: block;
+}
+
+.sc-player .sc-controls .sc-prev,
+.sc-player .sc-controls .sc-next {
+  top: 6px;
+  z-index: 1;
+  display: block;
+  width: 32px;
+  height: 24px;
+}
+
+.sc-player .sc-controls .sc-prev {
+  left: 0;
+  display: block;
+}
+
+.sc-player .sc-controls .sc-next {
+  left: 60px;
+  display: block;
+}
+
+/* scrubber */
+
+.sc-scrubber {
+  position: absolute;
+  top: 5px;
+  right: 32px;
+  left: 120px;
+  z-index: 600;
+  display: block;
+  height: 40px;
+}
+
+.sc-scrubber .sc-time-span {
+  position: relative;
+  height: 8px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
+.sc-scrubber .sc-buffer,
+.sc-scrubber .sc-played {
+  position: absolute;
+  top: 0;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.sc-track-duration {
+  float: right;
+  padding: 0 5px;
+  margin-left: 5px;
+  text-align: right;
+}
+
+/* tracks */
+
+/* Track listings*/
+
+.sc-player ol.sc-trackslist {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  overflow: auto;
+  background: #fff;
+}
+
+.sc-player ol.sc-trackslist li {
+  position: relative;
+  padding: 3px 30px 3px 5px;
+  margin: 1px 5px;
+  cursor: pointer;
+}
+
+.sc-player ol.sc-trackslist li span {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+
+/* Track info*/
+
+.sc-player .sc-info {
+  position: absolute;
+  top: 10px;
+  left: -5000px;
+  z-index: 500;
+  width: 400px;
+  height: 200px;
+  padding: 5px;
+  margin-left: -200px;
+}
+
+.sc-player .sc-info.active {
+  top: 12%;
+  left: 50%;
+}
+
+.sc-player .sc-info-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.sc-player .sc-info-toggle.active {
+  left: -5000px;
+}
+
+.sc-player .sc-info-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+/* volume control */
+
+.sc-volume-slider {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 110px;
+  height: 8px;
+  background-color: white;
+}
+
+.sc-volume-slider .sc-volume-status {
+  position: absolute;
+  width: 0;
+  height: 8px;
+}
+
+/* utilities */
+
+.sc-player .hidden {
+  display: none;
+}
+
+.sc-player-engine-container {
+  position: fixed;
+  top: 2px;
+  left: 2px;
+  width: 1px;
+  height: 1px;
+}
+
+/* HIDDEN PART */
+
+.sc-info-toggle,
+.sc-artwork-list,
+.sc-waveform-container img {
+  display: none;
+}
