@@ -9,4 +9,16 @@ body {
   display: inline-block;
   width: 40%;
   margin: 3%;
+  vertical-align: top;
+}
+
+a {
+  color: orange;
+}
+
+@media screen and (max-width: 900px) {
+  .column2 {
+    display: block;
+    width: auto;
+  }
 }
