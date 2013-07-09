@@ -1,3 +1,15 @@
+/* HIDDEN PART */
+
+.sc-info-toggle,
+.sc-info-close,
+.sc-info p,
+.sc-artwork-list,
+.sc-waveform-container img {
+  display: none;
+}
+
+/**/
+
 .sc-player {
   position: relative;
   width: 100%;
@@ -51,9 +63,11 @@
 .sc-player .sc-controls {
   position: relative;
   z-index: 800;
+  display: inline-block;
   width: 100px;
   height: 35px;
   margin: 6px;
+  vertical-align: top;
 }
 
 .sc-player .sc-controls a {
@@ -105,10 +119,10 @@
 .sc-scrubber {
   position: absolute;
   top: 5px;
-  right: 32px;
-  left: 120px;
+  right: 15px;
+  left: 260px;
   z-index: 600;
-  display: block;
+  display: inline-block;
   height: 40px;
 }
 
@@ -164,14 +178,21 @@
 /* Track info*/
 
 .sc-player .sc-info {
-  position: absolute;
-  top: 10px;
-  left: -5000px;
-  z-index: 500;
-  width: 400px;
-  height: 200px;
-  padding: 5px;
-  margin-left: -200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 120px;
+  height: 48px;
+  padding: 0 10px;
+  overflow: hidden;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.sc-player .sc-info * {
+  margin: 0;
+  margin-top: 3px;
 }
 
 .sc-player .sc-info.active {
@@ -224,12 +245,4 @@
   left: 2px;
   width: 1px;
   height: 1px;
-}
-
-/* HIDDEN PART */
-
-.sc-info-toggle,
-.sc-artwork-list,
-.sc-waveform-container img {
-  display: none;
 }
